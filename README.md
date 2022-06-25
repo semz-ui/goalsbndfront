@@ -19,4 +19,8 @@ Used Redux-toolkit to manage the state of my app like the login and logout, Post
 
 created a filter method array to help search for a user goal 
 
+
+react-toastify was used to alert the user if the login was successful or there was an error during registration or login
+
+
 You can access the app from => https://mikegoals-app.herokuapp.com/
