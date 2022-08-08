@@ -26,7 +26,7 @@ function RegisterForm() {
       if (isError) {
         toast.error(message)
       }
-      if (isSuccess || user) {
+      if (isSuccess) {
         toast.success("Registeration successfull")
         navigate('/')
       }
@@ -47,7 +47,7 @@ function RegisterForm() {
     const onSubmit = (e) => {
         e.preventDefault()
         if (password !== password2) {
-            toast.success('Passwords do not match')
+            toast.error('Passwords do not match')
         } else {
             const userData = {
                 name,

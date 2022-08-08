@@ -3,6 +3,7 @@ import { MdDelete, MdEdit } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { deleteGoal, reset, updateGoal } from '../features/goals/goalSlice'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 function GoalItem({ goal }) {
@@ -24,12 +25,16 @@ function GoalItem({ goal }) {
   }
 
 
+
   return (
     <div className='goal'>
+
       <div>
+        <Link to={`/distribute/${goal._id}`}>
         <div>{new Date(goal.createdAt).toLocaleDateString('en-US')}
         </div>
         <h2>{goal.text}</h2>
+        </Link>
       </div>
         <button className="close" onClick={onClick}><MdDelete size={20} /></button>
         {/* <button className="edit" onClick={handleSubmit}><MdEdit size={20} /></button> */}

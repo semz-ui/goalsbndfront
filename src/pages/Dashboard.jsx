@@ -17,9 +17,13 @@ function Dashboard() {
     if(isError){
       console.log(message)
     }
-    if (!user) {
+  
+    if (user) {
+      navigate('/')
+    } else {
       navigate('/login')
     }
+
     dispatch(getGoals())
     return () => {
       dispatch(reset())
@@ -34,6 +38,7 @@ function Dashboard() {
     setQuery(e.target.value);
   };
 
+  
   return (
     <>
       <section className="heading">
@@ -46,7 +51,7 @@ function Dashboard() {
       <GoalForm />
       <section className="content">
       {goals.length > 0 ? (
-        <div className="goals">
+        <div className="goals" key={goals._id}>
           {goals
           .filter((goal) => {
           if (query === "") {
@@ -58,7 +63,7 @@ function Dashboard() {
           }
         })
           .map((goal) => (
-           <GoalItem key={goals._id} goal={goal} />
+           <GoalItem key={goal._id} goal={goal} />
           ))}
         </div>
       ) : (<h3>You have no goals yet</h3>)}

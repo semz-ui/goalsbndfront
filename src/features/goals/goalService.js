@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "/api/goals/";
+// const API_URL = "http://localhost:5000/api/goals/";
+const API_URL = "https://mikegoals-app.herokuapp.com/";
 
 //Create new goal
 const createGoal = async (goalData, token) => {
@@ -47,11 +48,22 @@ const updateGoal = async (goalData, token) => {
   return response.data;
 };
 
+const getSingleGoal = async (id, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.get(API_URL + id, config);
+  return response.data;
+};
+
 const goarService = {
   createGoal,
   getGoals,
   deleteGoal,
   updateGoal,
+  getSingleGoal,
 };
 
 export default goarService;

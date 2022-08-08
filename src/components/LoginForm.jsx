@@ -30,6 +30,9 @@ function LoginForm() {
     
       dispatch(reset())
     }, [user, isError, isSuccess, message, dispatch, navigate])
+    // if (user) {
+    //   navigate('/')
+    // }
 
     const onChange = (e) => {
         setFormData((prevState) => ({
